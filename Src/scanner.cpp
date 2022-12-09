@@ -5,6 +5,9 @@
  *      Author: phelp
  */
 #include"scanner.h"
+#include <iostream>
+using namespace std;
+
 
 //vector of tokens to store all tokens type and value
 vector<Token>tokenList;
@@ -115,6 +118,7 @@ Token getToken(string Text)
 		case 0:
 
 			start = g_Index;
+
 			if (isChar(Text[g_Index]))
 				state = 1;	// CHAR STATE
 			else if (isNum(Text[g_Index]))
@@ -139,10 +143,11 @@ Token getToken(string Text)
 			if(isBreakChar(Text[g_Index]) || isOp(Text[g_Index]) || g_Index ==(Text.length() - 1) )
 			{
 				state = 13; //ACCEPTING STATE
-				if(g_Index ==(Text.length() - 1))
-					temp.Value= Text.substr(start , g_Index);
+
+				if (g_Index ==(Text.length() - 1) )
+					temp.Value= Text.substr(start ,g_Index - start + 1);
 				else
-					temp.Value= Text.substr(start , g_Index - 1);
+					temp.Value= Text.substr(start , g_Index - start);
 
 				if(isReservedWord(temp.Value))
 					temp.Type = "Reserved Word";
@@ -164,10 +169,10 @@ Token getToken(string Text)
 				state = 13; //ACCEPTING STATE
 				temp.Type = "Identifier";
 
-				if(g_Index ==(Text.length() - 1))
-					temp.Value= Text.substr(start , g_Index);
+				if (g_Index ==(Text.length() - 1) )
+					temp.Value= Text.substr(start ,g_Index - start + 1);
 				else
-					temp.Value= Text.substr(start , g_Index - 1);
+					temp.Value= Text.substr(start , g_Index - start);
 			}
 			break;
 
@@ -192,10 +197,10 @@ Token getToken(string Text)
 				state = 13; //ACCEPTING STATE
 				temp.Type = "Constant";
 
-				if(g_Index ==(Text.length() - 1))
-					temp.Value= Text.substr(start , g_Index);
+				if (g_Index ==(Text.length() - 1) )
+					temp.Value= Text.substr(start ,g_Index - start + 1);
 				else
-					temp.Value= Text.substr(start , g_Index - 1);
+					temp.Value= Text.substr(start , g_Index - start);
 			}
 			break;
 
@@ -267,6 +272,8 @@ Token getToken(string Text)
 }
 
 
+
+
 string getTokens(string input){
 	string tokens = "";
 	string str;
@@ -275,6 +282,7 @@ string getTokens(string input){
 	{
 		tokenList.push_back(getToken(str));
 		tokens += (tokenList.back().Value + ", " + tokenList.back().Type + "\n");
+		//cout <<(tokenList.back().Value + ", " + tokenList.back().Type + "\n");
 	}
 
 	g_Index = 0;

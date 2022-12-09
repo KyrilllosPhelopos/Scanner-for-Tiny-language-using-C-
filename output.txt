@@ -1,0 +1,32 @@
+read, Reserved Word
+x, Identifier
+;, Special Symbol - <semicolon>
+if, Reserved Word
+0, Constant
+<, Special Symbol - <less than>
+x, Identifier
+then, Reserved Word
+fact, Identifier
+:=, Special Symbol - <assign>
+1, Constant
+;, Special Symbol - <semicolon>
+repeat, Reserved Word
+fact, Identifier
+:=, Special Symbol - <assign>
+fact, Identifier
+*, Special Symbol - <multiply>
+x, Identifier
+;, Special Symbol - <semicolon>
+x, Identifier
+:=, Special Symbol - <assign>
+x, Identifier
+-, Special Symbol - <subtraction>
+1, Constant
+until, Reserved Word
+x, Identifier
+=, Special Symbol - <equal>
+0, Constant
+;, Special Symbol - <semicolon>
+write, Reserved Word
+fact, Identifier
+end, Reserved Word

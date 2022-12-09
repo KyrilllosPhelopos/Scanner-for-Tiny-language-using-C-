@@ -5,7 +5,7 @@ string convert_file_into_str( )
 {
 	stringstream buffer;
 	string input;
-	std::ifstream file ("input.txt"); // this is equivalent to the above method
+	std::ifstream file ("input.txt");
 	if (!file.fail())
 	{
 
@@ -15,4 +15,11 @@ string convert_file_into_str( )
 	}
 	return input;
 
+}
+
+void write_into_file(string str)
+{
+	std::ofstream out("output.txt");
+	out << str;
+	out.close();
 }

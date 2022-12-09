@@ -14,7 +14,11 @@ using namespace std;
 
 int main() {
 	string str ;
+	string tokens;
 	str = convert_file_into_str();
+	tokens = getTokens(str);
 	cout<< getTokens(str);
 	fflush(stdout);
+	write_into_file(tokens);
+
 }

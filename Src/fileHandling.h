@@ -14,6 +14,7 @@
 using namespace std;
 
 string convert_file_into_str();
+void write_into_file(string str);
 
 
 
